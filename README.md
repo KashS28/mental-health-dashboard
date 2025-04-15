@@ -59,4 +59,9 @@ Built using:
 
 ## 📂 Project Structure
 
-mental-health-dashboard/ ├── api.py # Core API logic and tweet collection ├── sentiment.py # Sentiment analysis functions ├── app.py # Streamlit dashboard app ├── requirements.txt # Dependencies └── README.md # Project documentation
+mental-health-dashboard/ 
+├── api.py # Core API logic and tweet collection 
+├── sentiment.py # Sentiment analysis functions 
+├── app.py # Streamlit dashboard app 
+├── requirements.txt # Dependencies 
+└── README.md # Project documentation
