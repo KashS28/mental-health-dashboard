@@ -1,91 +1,62 @@
+# 🧠 Mental Health Sentiment Analysis Dashboard
 
-
-🧠 Mental Health Sentiment Analysis Dashboard
 A real-time data visualization dashboard that analyzes mental health-related conversations on Twitter using Natural Language Processing (NLP) and sentiment analysis.
 
-📌 Overview
-The Mental Health Dashboard is a dynamic visualization tool that tracks and displays public sentiment around mental health topics based on Twitter data. It empowers users to explore mental health trends, hashtags, and emotional context in real-time.
+---
+
+## 📌 Overview
+
+The **Mental Health Dashboard** is a dynamic visualization tool that tracks and displays public sentiment around mental health topics based on Twitter data. It empowers users to explore mental health trends, hashtags, and emotional context in real-time.
 
 Built using:
+- 🐍 Python
+- 🧪 Tweepy (Twitter API v2)
+- 🔍 VADER Sentiment Analysis
+- 📊 Plotly, Matplotlib, Streamlit
 
-🐍 Python
+---
 
-🧪 Tweepy (Twitter API v2)
+## 🎯 Key Features
 
-🔍 VADER Sentiment Analysis
+- 🔄 **Real-time Tweet Collection**  
+  Fetches the latest tweets using the Twitter API based on user-defined hashtags.
 
-📊 Plotly, Matplotlib, Streamlit
+- 💬 **Sentiment Analysis**  
+  Classifies tweets as Positive, Negative, or Neutral using VADER.
 
-🎯 Key Features
-🔄 Real-time Tweet Collection
-Fetches the latest tweets using the Twitter API based on user-defined hashtags.
+- 📈 **Interactive Visualizations**  
+  Line graphs, bar charts, and pie charts to visualize sentiment trends.
 
-💬 Sentiment Analysis
-Classifies tweets as Positive, Negative, or Neutral using VADER.
+- 📝 **Tweet Summaries**  
+  Short summaries highlighting the tone of public conversation.
 
-📈 Interactive Visualizations
-Line graphs, bar charts, and pie charts to visualize sentiment trends.
+- 🎯 **Hashtag Customization**  
+  Users can choose and compare hashtags of interest.
 
-📝 Tweet Summaries
-Short summaries highlighting the tone of public conversation.
+---
 
-🎯 Hashtag Customization
-Users can choose and compare hashtags of interest.
+## 🚀 Live Demo
 
-🚀 Demo
-https://mental-health-dashboard-eece5642.streamlit.app/
+🌐 [Click here to try the app](https://mental-health-dashboard-eece5642.streamlit.app/)
 
+<!-- Optional: Add a screenshot or GIF of your dashboard -->
+<!-- ![Dashboard Screenshot](demo.gif) -->
 
-🛠️ Tech Stack
+---
 
-Tool	Purpose
-Python	Core programming language
-Tweepy	Collecting tweets using Twitter API v2
-VADER (NLTK)	Sentiment analysis
-Pandas, NumPy	Data preprocessing
-Plotly, Matplotlib	Data visualization
-Streamlit	Web app interface
-📂 Project Structure
-bash
-Copy
-Edit
-mental-health-dashboard/
-├── api.py                # Core API logic and tweet collection
-├── sentiment.py          # Sentiment analysis functions
-├── app.py                # Streamlit dashboard app
-├── requirements.txt      # Dependencies
-└── README.md             # Project documentation
-⚙️ Setup Instructions
-Clone the repo:
+## 🛠️ Tech Stack
 
-bash
-Copy
-Edit
-git clone https://github.com/KashS28/mental-health-dashboard.git
-cd mental-health-dashboard
-Install dependencies:
+| Tool           | Purpose                                  |
+|----------------|------------------------------------------|
+| Python         | Core programming language                |
+| Tweepy         | Collecting tweets using Twitter API      |
+| VADER (NLTK)   | Sentiment analysis engine                |
+| Pandas, NumPy  | Data manipulation and preprocessing      |
+| Plotly, Matplotlib | Data visualization                 |
+| Streamlit      | Web app framework                        |
 
-bash
-Copy
-Edit
-pip install -r requirements.txt
-Add Twitter API keys to your environment or directly in the api.py file.
+---
 
-Run the app:
+## 📂 Project Structure
 
-bash
-Copy
-Edit
-streamlit run app.py
-🌍 Use Cases
-Track how people feel about mental health-related events (e.g., awareness days, campaigns).
-
-Analyze public sentiment for mental health organizations.
-
-Understand emotional patterns over time for research or outreach.
-
-🙋‍♀️ Author
-Kashish Shah
-Graduate Student @ Northeastern University
-Specializing in Machine Learning & Data Visualization
-LinkedIn | Portfolio (if any)
+mental-health-dashboard/ ├── api.py # Core API logic and tweet collection ├── sentiment.py # Sentiment analysis functions ├── app.py # Streamlit dashboard app ├── requirements.txt # Dependencies └── README.md # Project documentation
