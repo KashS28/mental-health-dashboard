@@ -1,47 +1,43 @@
+from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
+from nrclex import NRCLex
 import pandas as pd
-import re
-import nltk
-from nltk.sentiment import SentimentIntensityAnalyzer
-import os
 
-# Download VADER lexicon (only needs to run once)
-nltk.download('vader_lexicon')
+analyzer = SentimentIntensityAnalyzer()
 
-# === Load Twitter Data ===
-df = pd.read_csv("data/twitter_mental_health_live.csv")
-
-# === Clean the Tweets ===
-def clean_text(text):
-    text = str(text)
-    text = re.sub(r"http\S+", "", text)         # Remove URLs
-    text = re.sub(r"@\w+", "", text)            # Remove mentions
-    text = re.sub(r"#", "", text)               # Remove hashtag symbol
-    text = re.sub(r"\n", " ", text)             # Remove line breaks
-    text = re.sub(r"[^\w\s]", "", text)         # Remove punctuation
-    text = re.sub(r"\d+", "", text)             # Remove numbers
-    text = text.lower()                         # Lowercase
-    text = re.sub(r"\s+", " ", text).strip()    # Remove extra spaces
-    return text
-
-df["clean_text"] = df["text"].apply(clean_text)
-
-# === VADER Sentiment Analysis ===
-sia = SentimentIntensityAnalyzer()
-
-df["compound"] = df["clean_text"].apply(lambda x: sia.polarity_scores(x)["compound"])
-
-def get_sentiment_label(score):
-    if score >= 0.05:
-        return "Positive"
-    elif score <= -0.05:
-        return "Negative"
+def classify_sentiment(score):
+    if score >= 0.5:
+        return "very positive"
+    elif score >= 0.1:
+        return "slightly positive"
+    elif score <= -0.5:
+        return "very negative"
+    elif score <= -0.1:
+        return "slightly negative"
     else:
-        return "Neutral"
+        return "neutral"
 
-df["sentiment"] = df["compound"].apply(get_sentiment_label)
+def analyze_sentiment(text):
+    score = analyzer.polarity_scores(text)['compound']
+    return classify_sentiment(score)
 
-# === Save the Sentiment-Annotated Tweets ===
-os.makedirs("data", exist_ok=True)
-df.to_csv("data/sentiment_tweets.csv", index=False)
+def analyze_emotions(text):
+    try:
+        emotion_obj = NRCLex(text)
+        scores = emotion_obj.raw_emotion_scores
+        if scores:
+            # Return dominant emotion(s)
+            max_val = max(scores.values())
+            dominant = [k for k, v in scores.items() if v == max_val]
+            return ', '.join(dominant)
+        return "none"
+    except Exception:
+        return "error"
 
-print(f"✅ Sentiment analysis complete. {len(df)} tweets saved to 'data/sentiment_tweets.csv'")
+def analyze_dataframe(df, text_column='text'):
+    df = df.copy()
+    if text_column in df.columns:
+        df['sentiment'] = df[text_column].apply(analyze_sentiment)
+        df['emotions'] = df[text_column].apply(analyze_emotions)
+    else:
+        raise ValueError(f"Column '{text_column}' not found in DataFrame.")
+    return df
