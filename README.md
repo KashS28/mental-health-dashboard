@@ -1,67 +1,103 @@
 # 🧠 Mental Health Sentiment Analysis Dashboard
 
-A real-time data visualization dashboard that analyzes mental health-related conversations on Twitter using Natural Language Processing (NLP) and sentiment analysis.
+A Streamlit dashboard that analyzes Twitter sentiment around mental health topics in real-time. This project uses the Twitter API, NLP models, and interactive visualizations to extract meaningful emotional insights from social media conversations.
 
 ---
 
-## 📌 Overview
-
-The **Mental Health Dashboard** is a dynamic visualization tool that tracks and displays public sentiment around mental health topics based on Twitter data. It empowers users to explore mental health trends, hashtags, and emotional context in real-time.
-
-Built using:
-- 🐍 Python
-- 🧪 Tweepy (Twitter API v2)
-- 🔍 VADER Sentiment Analysis
-- 📊 Plotly, Matplotlib, Streamlit
+## 🌐 Live App
+[Click here to view the dashboard](https://mental-health-dashboard-eece5642.streamlit.app/)
 
 ---
 
-## 🎯 Key Features
+## 🚀 Features
 
-- 🔄 **Real-time Tweet Collection**  
-  Fetches the latest tweets using the Twitter API based on user-defined hashtags.
+### 🖥️ UI & Theming
+- Light/Dark mode toggle
+- Calming color palette for mental health context
 
-- 💬 **Sentiment Analysis**  
-  Classifies tweets as Positive, Negative, or Neutral using VADER.
+### 📊 Visualizations
+- Line graph of sentiment trends over time
+- Word clouds of tweet content
+- Sentiment distribution bar charts
+- Trending hashtags widget
 
-- 📈 **Interactive Visualizations**  
-  Line graphs, bar charts, and pie charts to visualize sentiment trends.
+### 🔍 Interactivity
+- Enter any **hashtag** or **keyword** to view matching tweets
+- Display tweet summaries using extractive summarization (powered by Hugging Face Transformers)
 
-- 📝 **Tweet Summaries**  
-  Short summaries highlighting the tone of public conversation.
-
-- 🎯 **Hashtag Customization**  
-  Users can choose and compare hashtags of interest.
-
----
-
-## 🚀 Live Demo
-
-🌐 [Click here to try the app](https://mental-health-dashboard-eece5642.streamlit.app/)
-
-<!-- Optional: Add a screenshot or GIF of your dashboard -->
-<!-- ![Dashboard Screenshot](demo.gif) -->
+### 🔁 Real-time Data Collection
+- Fetch up to 100 tweets using Twitter API v2
+- Query customizable via command-line or future UI enhancements
 
 ---
 
 ## 🛠️ Tech Stack
 
-| Tool           | Purpose                                  |
-|----------------|------------------------------------------|
-| Python         | Core programming language                |
-| Tweepy         | Collecting tweets using Twitter API      |
-| VADER (NLTK)   | Sentiment analysis engine                |
-| Pandas, NumPy  | Data manipulation and preprocessing      |
-| Plotly, Matplotlib | Data visualization                 |
-| Streamlit      | Web app framework                        |
+| Tool | Purpose |
+|------|---------|
+| Python | Core language |
+| Streamlit | UI and dashboard framework |
+| Tweepy | Twitter API client |
+| Hugging Face Transformers | Summarization model |
+| TextBlob | Sentiment analysis |
+| Plotly & Matplotlib | Visualizations |
+| Pandas | Data manipulation |
 
 ---
 
-## 📂 Project Structure
+## 📂 Folder Structure
+```
+mental-health-dashboard/
+├── app.py                     # Main Streamlit application
+├── api.py                     # Twitter API integration
+├── sentiment_analysis.py      # Sentiment classification using TextBlob
+├── visualize.py               # Visual & analytics utilities
+├── data/                      # Contains collected tweet CSVs
+├── outputs/                   # Generated plots (optional)
+└── requirements.txt           # Required Python packages
+```
 
-mental-health-dashboard/ 
-├── api.py # Core API logic and tweet collection 
-├── sentiment.py # Sentiment analysis functions 
-├── app.py # Streamlit dashboard app 
-├── requirements.txt # Dependencies 
-└── README.md # Project documentation
+---
+
+## ✅ Setup Instructions
+
+1. **Clone this repository**
+```bash
+git clone https://github.com/KashS28/mental-health-dashboard.git
+cd mental-health-dashboard
+```
+
+2. **Install requirements**
+```bash
+pip install -r requirements.txt
+```
+
+3. **Add your Twitter API Bearer Token**
+Create a `.env` file:
+```
+BEARER_TOKEN=your_token_here
+```
+
+4. **Run the app**
+```bash
+streamlit run app.py
+```
+
+---
+
+## 📈 Example Use Cases
+- Visualize public sentiment around mental health topics
+- Discover trending hashtags related to emotional well-being
+- Summarize how people feel about mental health over time
+
+---
+
+## 🙌 Acknowledgements
+- Built as part of **EECE 5642 – Data Visualization Final Project**
+- Twitter Developer Platform
+- Hugging Face Transformers
+- Streamlit Community
+
+---
+
+## 👩‍💻 Made with ❤️ by Kashish Shah
